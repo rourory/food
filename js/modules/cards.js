@@ -1,7 +1,8 @@
 "use strict";
 
 function cards(){
-
+    const axios = require('axios').default;
+    
     class MenuCard {
         constructor(title, description, price, src, altsrc, parentSelector, ...classes) {
             this.title = title;
@@ -50,7 +51,7 @@ function cards(){
 
     axios.get('http://localhost:3000/menu')
     .then(data => createCard(data.data));
-    
+ 
     function createCard(data){
         data.forEach(({img,altimg,title,descr,price}) => {
             const element = document.createElement('div');
